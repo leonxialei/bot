@@ -1,6 +1,7 @@
 <?php
 
 ini_set("display_errors", "On");
+
 error_reporting(E_ALL | E_STRICT);
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
