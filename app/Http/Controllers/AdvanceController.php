@@ -76,16 +76,16 @@ class AdvanceController extends Controller
 //            Http::post($url, $parameters);
 //            die;
 
-            $parameters = [
-                'chat_id' => $chat_id,
-                'voice' =>  'AwACAgUAAxkBAAEBUu9jV9cT2DynUUTQfE86xW7Kqrx3MQAC4gYAAo7OuFZwYoq0OpSg-yoE',
-                'caption' => '【發財--通道通知】'."\n".'通道已打开，请加大并发，'."\n".'请加大并发，请加大并发，请加大并发！！！！',
-                'protect_content' => true
-            ];
-
-            $url = 'https://api.telegram.org/bot'.$token.'/sendVoice';
-            Http::post($url, $parameters);
-            die;
+//            $parameters = [
+//                'chat_id' => $chat_id,
+//                'voice' =>  'AwACAgUAAxkBAAEBUu9jV9cT2DynUUTQfE86xW7Kqrx3MQAC4gYAAo7OuFZwYoq0OpSg-yoE',
+//                'caption' => '【發財--通道通知】'."\n".'通道已打开，请加大并发，'."\n".'请加大并发，请加大并发，请加大并发！！！！',
+//                'protect_content' => true
+//            ];
+//
+//            $url = 'https://api.telegram.org/bot'.$token.'/sendVoice';
+//            Http::post($url, $parameters);
+//            die;
 
         }
 //        if($chat_id == '-1001615268552') {
@@ -746,8 +746,8 @@ class AdvanceController extends Controller
         $orderLogModel = new OrderLog();
         $orderLogModel->merchant_id = $merchant->id;
         $orderLogModel->attribute = 2;
-        $orderLogModel->type = 1;
-        $orderLogModel->amount = $row*100;
+        $orderLogModel->type = $type;
+        $orderLogModel->amount = abs($row)*100;
         $orderLogModel->before_balance = ($balance - $row) * 100;
         $orderLogModel->balance = $balance * 100;
         $orderLogModel->note = '宇宙机器人入账';
